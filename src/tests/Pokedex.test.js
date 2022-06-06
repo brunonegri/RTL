@@ -41,6 +41,7 @@ describe('Testes Pokedex', () => {
 
       const pokemonName = screen.getByTestId('pokemon-name');
       const pokemonType = screen.getByTestId('pokemon-type');
+      const pokemonNext = screen.getByTestId('next-pokemon');
 
       const typesPokemon = pokemons.filter((pokemon) => (
         pokemon.type === button.textContent
@@ -50,6 +51,7 @@ describe('Testes Pokedex', () => {
         expect(pokemon.type).toBe(button.textContent);
         expect(pokemonType.textContent).toBe(pokemon.type);
         expect(pokemonName.textContent).toBe(pokemon.name);
+        userEvent.click(pokemonNext);
       });
     });
   });
@@ -58,7 +60,9 @@ describe('Testes Pokedex', () => {
     const buttonReset = screen.getByRole('button', {
       name: 'All',
     });
+    userEvent.click(buttonReset);
+
+    expect(buttonReset.textContent).toBe('All');
     expect(buttonReset).toBeInTheDocument();
-    // expect(userEvent.click(buttonReset)).toBeCalledWith('all');
   });
 });
