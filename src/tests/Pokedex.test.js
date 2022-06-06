@@ -36,8 +36,24 @@ describe('Testes Pokedex', () => {
     const buttons = screen.getAllByTestId('pokemon-type-button');
     buttons.forEach((button) => {
       expect(button).toBeInTheDocument();
+      const btnType = screen.getByRole('button', { name: button.textContent });
+      userEvent.click(btnType);
+
+      const pokemonName = screen.getByTestId('pokemon-name');
+      const pokemonType = screen.getByTestId('pokemon-type');
+
+      const typesPokemon = pokemons.filter((pokemon) => (
+        pokemon.type === button.textContent
+      ));
+
+      typesPokemon.forEach((pokemon) => {
+        expect(pokemon.type).toBe(button.textContent);
+        expect(pokemonType.textContent).toBe(pokemon.type);
+        expect(pokemonName.textContent).toBe(pokemon.name);
+      });
     });
   });
+
   test('Mostra botão de reset na tela', () => {
     const buttonReset = screen.getByRole('button', {
       name: 'All',

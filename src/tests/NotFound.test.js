@@ -5,7 +5,8 @@ import renderWithRouter from '../renderWithRouter';
 
 describe('Testes Not Found', () => {
   beforeEach(() => {
-    renderWithRouter(<App />);
+    const { history } = renderWithRouter(<App />);
+    history.push('/NotFound');
   });
   test('Testa mensagem na tela "Page requested not found"', () => {
     const noFoundText = screen.getByRole('heading', {
