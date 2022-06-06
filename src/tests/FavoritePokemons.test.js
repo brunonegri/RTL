@@ -11,6 +11,12 @@ describe('Testes Favorites Pokemons', () => {
   });
   test('Testa mensagem na tela "No favorite pokemon found"', () => {
     const noFavText = screen.getByText(/no favorite pokemon found/i);
-    expect(noFavText).toBeInTheDocument();
+    const listFav = document.getElementsByClassName('favorite-pokemon');
+
+    if (listFav.length === 0) {
+      expect(noFavText).toBeInTheDocument();
+    }
+
+    expect(() => (listFav > 1)).toBeTruthy();
   });
 });
