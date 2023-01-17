@@ -31,7 +31,7 @@ Projeto desenvolvido durante o curso da Trybe. Este foi o 6º projeto do modúlo
 
 Não foi feito deplay desta aplicação, então para utiliza-lá siga as intruções abaixo:
 
-* Requer Node instalado na maquina versão 15+
+* Requer Node instalado na maquina versão 16
 * Fazer o clone do projeto
 * Acessar a pasta do projeto
 * Abrir o terminal na pasta do porjeto e instalar as dependências com o comando: 
